@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracks xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns="http://www.spotify.com/ns/music/1">
+  <opensearch:Query role="request" startPage="1" searchTerms="true affection"/>
+  <opensearch:totalResults>30</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <track href="spotify:track:0tO8FKgGQzzuf8KGkHGeIw">
+    <name>True Affection</name>
+    <artist href="spotify:artist:3VNDPLoRirZi28lxSEYkZQ">
+      <name>The Blow</name>
+    </artist>
+    <id type="isrc">USK110617810</id>
+    <album href="spotify:album:19VBg2u1To7f9hLx1vZsn1">
+      <name>Paper Television</name>
+      <released>2006</released>
+      <availability>
+        <territories>US</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>203.250000</length>
+    <popularity>0.56</popularity>
+  </track>
+  <track href="spotify:track:1js3QhuQP3dwk4l2DrPXDC">
+    <name>True Affection</name>
+    <artist href="spotify:artist:3VNDPLoRirZi28lxSEYkZQ">
+      <name>The Blow</name>
+    </artist>
+    <id type="isrc">USK110617810</id>
+    <album href="spotify:album:1igZYQYZLikVob2CnT4C3Q">
+      <name>Paper Television</name>
+      <released>2006</released>
+      <availability>
+        <territories>AD AT BE BG CH CY CZ DE DK EE ES FI FR GB GR HU IE IS IT LI LT LU LV MC MT NL NO PL PT RO SE SI SK TR</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>203.250000</length>
+    <popularity>0.34</popularity>
+  </track>
+  <track href="spotify:track:4cSXxHpWigcsxdN88gspy8">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:2oDShWVqhNVQG0cbtinHnt">
+      <name>True Drivetime (3 CD Set )</name>
+      <released>2006</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CH CL CO CR CZ DE DK DO EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MY NI NL NO NZ PA PH PL PT PY RO SE SG SI SK SV TR TW</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>264.848000</length>
+    <popularity>0.22</popularity>
+  </track>
+  <track href="spotify:track:11Cwkh6VZa9JdlmPEZsZxS">
+    <name>True Love</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">GBAAM9201008</id>
+    <album href="spotify:album:1jJ3LAhFOtFHf0sHaPEZnP">
+      <name>Love And Affection: The Very Best Of</name>
+      <released>2013</released>
+      <availability>
+        <territories>GB IE</territories>
+      </availability>
+    </album>
+    <track-number>12</track-number>
+    <length>236.323000</length>
+    <popularity>0.2</popularity>
+  </track>
+  <track href="spotify:track:2LBdHLPhHgnxonqqohKaox">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:0fSWxa1of9l0DjVfEHHxSG">
+      <name>True Acoustic (3CD Set)</name>
+      <released>2007</released>
+      <availability>
+        <territories>AR AT AU BE BG BR CH CL CO CR CZ DE DK EE FI GB GR HK HU IE IS IT LT LU LV MT MY NL NO NZ PH PL PT RO SE SG SI SK TR TW</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>264.952000</length>
+    <popularity>0.18</popularity>
+  </track>
+  <track href="spotify:track:5pthRpkWPeM04WuOwJdoVH">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:2bAdfQUNdGF3plGlth25RS">
+      <name>True 70s Love</name>
+      <released>2008</released>
+      <availability>
+        <territories>AU BE BG CH CZ DE DK ES FI FR GB GR HK HU IS LU NL NO NZ PH PL PT SE SG SK</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>261.161000</length>
+    <popularity>0.15</popularity>
+  </track>
+  <track href="spotify:track:2EZM0FLzwhlrQpkkPihnVN">
+    <name>True Love</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">GBAAM9201008</id>
+    <album href="spotify:album:2Jnh9WnyXEM324joqCGqpi">
+      <name>Love And Affection</name>
+      <released>1996</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CH CL CO CR CZ DE DK DO ES FI FR GB GR GT HK HN HU IE IS IT LI LU MC MY NI NL NO NZ PA PH PL PT PY RO SE SG SI SK SV TR UY</territories>
+      </availability>
+    </album>
+    <track-number>2</track-number>
+    <length>239.173000</length>
+    <popularity>0.09</popularity>
+  </track>
+  <track href="spotify:track:1XvVqzEglLycdrJqtDIGVG">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:6E4eoLJTZYyIC5cZVg6fDx">
+      <name>Kate Ceberano</name>
+    </artist>
+    <id type="isrc">AUMU09900010</id>
+    <album href="spotify:album:00MnUtAkDl3y4WwvQKK94E">
+      <name>True Romantic</name>
+      <released>1999</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>6</track-number>
+    <length>247.174000</length>
+    <popularity>0.09</popularity>
+  </track>
+  <track href="spotify:track:1tJD2Pk0o3TBcMjDSOxMKp">
+    <name>Affection - True 2 Life Remix</name>
+    <artist href="spotify:artist:2HRa6pJSVzTLE5NEqpUizm">
+      <name>Pat Bedeau</name>
+    </artist>
+    <artist href="spotify:artist:106TZcguPJXQECgwqAJpVG">
+      <name>Steve Gurley</name>
+    </artist>
+    <artist href="spotify:artist:255ZPAkvfPjmKwPj4mC48B">
+      <name>Shishani</name>
+    </artist>
+    <id type="isrc">GBK2Z1000015</id>
+    <album href="spotify:album:2VKPVmQ8DaDqfxcMQDkn5W">
+      <name>Affection</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>474.765000</length>
+    <popularity>0.05</popularity>
+  </track>
+  <track href="spotify:track:6i9YBvM0VuY1zjyxXXelwK">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">DEC530010772</id>
+    <album href="spotify:album:5csTzkTSJhioCxi07Uwnex">
+      <name>That'll Flat Git It, Vol. 19 ('D'/Dart)</name>
+      <released>2011</released>
+      <availability>
+        <territories>AD AT BE CH CZ DE DK EE ES FI FR GB GR HU IE IS IT LI LT LU LV MC MT NL NO PL PT RO SE SI SK</territories>
+      </availability>
+    </album>
+    <track-number>22</track-number>
+    <length>118.279000</length>
+    <popularity>0.06</popularity>
+  </track>
+  <track href="spotify:track:68f0z3nfaz1dbPi7O8etKx">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:42NNFTnRJo0nFZDZ6okp3u">
+      <name>True 70s</name>
+      <released>2006</released>
+      <availability>
+        <territories>GB IE</territories>
+      </availability>
+    </album>
+    <track-number>11</track-number>
+    <length>266.390000</length>
+    <popularity>0.07</popularity>
+  </track>
+  <track href="spotify:track:3fCYwDitxqUCWPAVMflYGi">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:5GADtAq5DkBaDYLaPgt6nt">
+      <name>True Lovers</name>
+    </artist>
+    <id type="isrc">US4ZP0900009</id>
+    <album href="spotify:album:6SYnWMlS9qm2WRX6IKZU1r">
+      <name>True Lovers</name>
+      <released>2010</released>
+      <availability>
+        <territories>NZ</territories>
+      </availability>
+    </album>
+    <track-number>9</track-number>
+    <length>167.928000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:41V8ScX2Ueh1yMY9q3NTbz">
+    <name>True Affection</name>
+    <artist href="spotify:artist:2jnI7gjWTFFBZEn6u2w0aU">
+      <name>The Preachers</name>
+    </artist>
+    <id type="isrc">gbwtr0800380</id>
+    <album href="spotify:album:5yhlt4Jj4BamB9pEPTKuAO">
+      <name>Rock You Sinners</name>
+      <released>2008</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>112.893000</length>
+    <popularity>0.03</popularity>
+  </track>
+  <track href="spotify:track:0U8rjEXgpXKzYY5kVvwtJ7">
+    <name>True Affection</name>
+    <artist href="spotify:artist:6ifBJIJlOMOTb6bR9BiJsO">
+      <name>Elmodic</name>
+    </artist>
+    <id type="isrc">usy280721504</id>
+    <album href="spotify:album:1ASSdsIAIH6Gj1eiotqlvh">
+      <name>Monoism</name>
+      <released>2008</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>11</track-number>
+    <length>217.525000</length>
+    <popularity>0.03</popularity>
+  </track>
+  <track href="spotify:track:35bONsbzU3R1vqJ6ZbbmcR">
+    <name>Affection - True 2 Life Instrumental</name>
+    <artist href="spotify:artist:2HRa6pJSVzTLE5NEqpUizm">
+      <name>Pat Bedeau</name>
+    </artist>
+    <artist href="spotify:artist:106TZcguPJXQECgwqAJpVG">
+      <name>Steve Gurley</name>
+    </artist>
+    <artist href="spotify:artist:255ZPAkvfPjmKwPj4mC48B">
+      <name>Shishani</name>
+    </artist>
+    <id type="isrc">GBK2Z1000020</id>
+    <album href="spotify:album:2VKPVmQ8DaDqfxcMQDkn5W">
+      <name>Affection</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>9</track-number>
+    <length>474.765000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:4U0BuMDV5x0L9Q3nvgIabf">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">GB8XC1037387</id>
+    <album href="spotify:album:78dxY0mr53jG3XGklNbRll">
+      <name>101 Best of Rockabilly</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>69</track-number>
+    <length>119.586000</length>
+    <popularity>0.01</popularity>
+  </track>
+  <track href="spotify:track:34Ay27u2nEfhBC4Qb1lPOC">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">GBRXC1006504</id>
+    <album href="spotify:album:2a7ZQkjgZ2Lal1stSFFXhp">
+      <name>Rockabilly Riot</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AT BE CA CH CZ DE DK EE ES FI FR GB GR HU IE IS IT LI LT LU LV MC MT NL NO PL PT RO SE SI SK</territories>
+      </availability>
+    </album>
+    <track-number>12</track-number>
+    <length>119.534000</length>
+    <popularity>0.04</popularity>
+  </track>
+  <track href="spotify:track:6j4mN080vojnaQgra9veSd">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">GB8XC1041684</id>
+    <album href="spotify:album:6htK2RJhIU9mQPBe3TDL5a">
+      <name>Jukebox Favourites: Best of Rockabilly</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>7</track-number>
+    <length>119.586000</length>
+    <popularity>0.01</popularity>
+  </track>
+  <track href="spotify:track:1KtGRFBvBoMKYAZsrogZSN">
+    <name>True Affection</name>
+    <artist href="spotify:artist:5Ik7ZsoXG9pglqeq2XOghm">
+      <name>B J Johnson</name>
+    </artist>
+    <id type="isrc">GBLGL1069951</id>
+    <album href="spotify:album:5IK8GXZcQ4UAGlBSeR5GHN">
+      <name>Rockabilly Volume 2</name>
+      <released>2011</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>10</track-number>
+    <length>117.939000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:7FJmdjwK5Ybz01yQSgcTr4">
+    <name>True Affection</name>
+    <artist href="spotify:artist:5CcxFUE7mgmyDc8SDtluZg">
+      <name>The Jay Everett Band</name>
+    </artist>
+    <id type="isrc">ushm81202150</id>
+    <album href="spotify:album:39tDWzNUybXpvnZrAVjme1">
+      <name>Highway - EP</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>6</track-number>
+    <length>227.826000</length>
+    <popularity>0.02</popularity>
+  </track>
+  <track href="spotify:track:2X2grmLVNHOjhzOQKn1CzJ">
+    <name>Addiction to Affection</name>
+    <artist href="spotify:artist:590qCi6bCUsu6CFcNEMqml">
+      <name>Eyevory</name>
+    </artist>
+    <id type="isrc">DEM081200387</id>
+    <album href="spotify:album:1Cmh8Iu3ZuO4x8gi0HT00P">
+      <name>The True Bequest</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>210.283000</length>
+    <popularity>0.02</popularity>
+  </track>
+  <track href="spotify:track:3TTuNTHQlGTeN1tciyzHKy">
+    <name>The Object of My Affection</name>
+    <artist href="spotify:artist:49e4v89VmlDcFCMyDv9wQ9">
+      <name>Dean Martin</name>
+    </artist>
+    <id type="isrc">DELM41301484</id>
+    <album href="spotify:album:7MLf6jZf4YFNr2lwrZPYbx">
+      <name>True Love</name>
+      <released>2013</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO CA CH CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>9</track-number>
+    <length>157.941000</length>
+    <popularity>0.04</popularity>
+  </track>
+  <track href="spotify:track:4nPo3jaUAu9WlDsdGqjIq5">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">GB8XC1030184</id>
+    <album href="spotify:album:3MEnnTA0FAIVQ8aSN2gpIg">
+      <name>Real Rockabilly Vol 1</name>
+      <released>2011</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>119.586000</length>
+    <popularity>0.01</popularity>
+  </track>
+  <track href="spotify:track:5aiHcLRvRF6LNLjpdqGrXV">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">USV291332706</id>
+    <album href="spotify:album:7i1e9igMTi9yziRhKryZTd">
+      <name>Good Rockin' Rockabilly!, Vol. 1</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>14</track-number>
+    <length>119.534000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:3qrDZ95IpIo3JAXFUtOqRH">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:3nBAhg12mQELI1qAZwyPlY">
+      <name>True Acoustic (3CD Set)</name>
+      <released>2007</released>
+      <availability>
+        <territories>MX</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>264.952000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:4lWiYnHzaLvhfh2yyc6ulc">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:4ZctbmVYr9hmQ80sE8HBjq">
+      <name>True Drivetime (3 CD Set )</name>
+      <released>2006</released>
+      <availability>
+        <territories>MX</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>264.848000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:6esVpYxvAdaFN56AoAHHVF">
+    <name>Love And Affection</name>
+    <artist href="spotify:artist:1bdAJUX6JPsnYHbTl5jbk6">
+      <name>Joan Armatrading</name>
+    </artist>
+    <id type="isrc">USAM17600309</id>
+    <album href="spotify:album:63LowVFRH8ODRvpT2wUPtX">
+      <name>True 70s</name>
+      <released>2006</released>
+      <availability>
+        <territories>MX</territories>
+      </availability>
+    </album>
+    <track-number>11</track-number>
+    <length>266.390000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:2vOuSNUoCSo5qj5IJeO9fL">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">US6R21228592</id>
+    <album href="spotify:album:2pWmEsCeOQBMkot3PhTyBn">
+      <name>Rockabilly Hot Rod Rally, Vol. 1</name>
+      <released>2012</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>14</track-number>
+    <length>119.534000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:7xwbST20ixvsFeALtPVa6f">
+    <name>True Affection</name>
+    <artist href="spotify:artist:1uUYKXN2EfRwpNARZRXMac">
+      <name>Byron Johnson</name>
+    </artist>
+    <id type="isrc">US6R21360014</id>
+    <album href="spotify:album:6s36jEimG2qarm5cHMqu5i">
+      <name>Good Rockin' Rockabilly!, Vol. 1</name>
+      <released>2013</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW UY</territories>
+      </availability>
+    </album>
+    <track-number>14</track-number>
+    <length>119.534000</length>
+    <popularity>0</popularity>
+  </track>
+  <track href="spotify:track:5CG3XEWCSetrQSKgqhN6NR">
+    <name>Affection</name>
+    <artist href="spotify:artist:7v2g49qOMju0NqHXszVJJL">
+      <name>The True Bypass</name>
+    </artist>
+    <id type="isrc">SEVUC1300108</id>
+    <album href="spotify:album:4xDE3Uhijy5ChFnksP6GKC">
+      <name>No Hero Sound</name>
+      <released>2013</released>
+      <availability>
+        <territories>AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY</territories>
+      </availability>
+    </album>
+    <track-number>8</track-number>
+    <length>212.688000</length>
+    <popularity>0.03</popularity>
+  </track>
+</tracks>
