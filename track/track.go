@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 )
 
 type Root struct {
@@ -24,23 +25,41 @@ func Fetch(title, artist, album string) (Track, error) {
 	return Track{}, nil
 }
 
-//fmt.Sprintf("http://ws.spotify.com/search/1/track?q=track:%s artist:%s album:%s", name, artist, album)
-//fmt.Sprintf("http://ws.spotify.com/search/1/track?q=track:%s artist:%s", name, artist)
+func constructSearchQuery(title, artist, album string) ([]string, error) {
+	title = strings.TrimSpace(title)
+	artist = strings.TrimSpace(artist)
+	album = strings.TrimSpace(album)
 
-func ConstructSearchURL(title, artist, album string) string {
 	if len(title) > 0 {
-		url := fmt.Sprintf("http://ws.spotify.com/search/1/track?q=track:%s", title)
-
-		if len(artist) > 0 {
-			url += fmt.Sprintf(" artist:%s", artist)
+		// If both artist and album are supplied, return array of three
+		// search queries so that these can be tried in order if no tracks
+		// are returned.
+		if len(artist) > 0 && len(album) > 0 {
+			return []string{
+				constructSearchQueryFromTitleArtistAndAlbum(title, artist, album),
+				constructSearchQueryFromTitleAndArtist(title, artist),
+				constructSearchQueryFromTitleAndAlbum(title, album),
+			}, nil
+		} else if len(artist) > 0 {
+			return []string{constructSearchQueryFromTitleAndArtist(title, artist)}, nil
+		} else if len(album) > 0 {
+			return []string{constructSearchQueryFromTitleAndAlbum(title, album)}, nil
 		}
-
-		url += fmt.Sprintf(" album:%s", album)
-
-		return url
 	}
 
-	return ""
+	return nil, errors.New("spotify/track: A title and at least one of article and album must be supplied to constructSearchQuery.")
+}
+
+func constructSearchQueryFromTitleAndArtist(title, artist string) string {
+	return fmt.Sprintf("track:%s artist:%s", title, artist)
+}
+
+func constructSearchQueryFromTitleAndAlbum(title, album string) string {
+	return fmt.Sprintf("track:%s album:%s", title, album)
+}
+
+func constructSearchQueryFromTitleArtistAndAlbum(title, artist, album string) string {
+	return fmt.Sprintf("track:%s artist:%s album:%s", title, artist, album)
 }
 
 func FetchTracksXML(url string) ([]byte, error) {
@@ -48,7 +67,7 @@ func FetchTracksXML(url string) ([]byte, error) {
 	defer resp.Body.Close()
 
 	if !(resp.StatusCode == http.StatusOK || resp.StatusCode == http.StatusNotModified) {
-		return nil, fmt.Errorf("spotify: GET request in FetchTracksXML returned status %d rather than %d or %d", resp.StatusCode, http.StatusOK, http.StatusNotModified)
+		return nil, fmt.Errorf("spotify/track: GET request in FetchTracksXML returned status %d rather than %d or %d", resp.StatusCode, http.StatusOK, http.StatusNotModified)
 	}
 
 	// Only returns error if bytes Buffer mecomes to large. How can this be tested?
@@ -73,7 +92,7 @@ func extractTracksFromXML(xml_data []byte) ([]Track, error) {
 	err := xml.Unmarshal(xml_data, &r)
 
 	if err != nil {
-		return nil, errors.New("spotify: unable to unmarshal xml_data in extractTracksFromXML")
+		return nil, errors.New("spotify/track: unable to unmarshal xml_data in extractTracksFromXML")
 	}
 
 	return r.TrackList, nil

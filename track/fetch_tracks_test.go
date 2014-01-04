@@ -10,7 +10,7 @@ import (
 
 func TestFetchTracksXMLReturnsErrorOnInternalServerError(t *testing.T) {
 	mockserver := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		http.Error(w, "internal server error", http.StatusInternalServerError)
+		http.Error(w, "", http.StatusInternalServerError)
 	}))
 
 	_, err := FetchTracksXML(mockserver.URL)
@@ -22,12 +22,12 @@ func TestFetchTracksXMLReturnsErrorOnInternalServerError(t *testing.T) {
 
 func TestFetchTracksXMLReturnsCorrectErrorMessage(t *testing.T) {
 	mockserver := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		http.Error(w, "internal server error", http.StatusInternalServerError)
+		http.Error(w, "", http.StatusInternalServerError)
 	}))
 
 	_, err := FetchTracksXML(mockserver.URL)
 
-	expected := fmt.Sprintf("spotify: GET request in FetchTracksXML returned status %d rather than %d or %d", http.StatusInternalServerError, http.StatusOK, http.StatusNotModified)
+	expected := fmt.Sprintf("spotify/track: GET request in FetchTracksXML returned status %d rather than %d or %d", http.StatusInternalServerError, http.StatusOK, http.StatusNotModified)
 	actual := err.Error()
 
 	if expected != actual {

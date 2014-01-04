@@ -71,7 +71,7 @@ func TestExtractTracksFromJSONMalformadXMLCorrectErrorMessage(t *testing.T) {
 
 	_, err := extractTracksFromXML([]byte(xml_data))
 
-	expected := "spotify: unable to unmarshal xml_data in extractTracksFromXML"
+	expected := "spotify/track: unable to unmarshal xml_data in extractTracksFromXML"
 	actual := err.Error()
 
 	if expected != actual {
