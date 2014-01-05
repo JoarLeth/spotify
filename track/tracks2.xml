@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tracks xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns="http://www.spotify.com/ns/music/1">
+  <opensearch:Query role="request" startPage="1" searchTerms="track:&quot;Uncover&quot; artist:&quot;Zara Larsson&quot;"/>
+  <opensearch:totalResults>9</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <opensearch:itemsPerPage>100</opensearch:itemsPerPage>
+  <track href="spotify:track:5rkok5WSDPoQb9xKx5R61n">
+    <name>Uncover</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">USSM11302640</id>
+    <album href="spotify:album:60HpAwkOWjgTIJERzgy76n">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>BE DK EE FI IS LT LU LV NL NO</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>213.002000</length>
+    <popularity>0.72</popularity>
+  </track>
+  <track href="spotify:track:131l5GkXPIk81bxihGypPt">
+    <name>Uncover</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1201112</id>
+    <album href="spotify:album:4K1Jjk7BdhdLbsMdl3q1f2">
+      <name>Introducing</name>
+      <released>2012</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>214.388000</length>
+    <popularity>0.71</popularity>
+  </track>
+  <track href="spotify:track:4ebPyGgoE5ThzNKquV4eKM">
+    <name>Uncover - Callaway &amp; Rosta Remix Radio Edit</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1300201</id>
+    <album href="spotify:album:6UOQi2XsYzKW8dth0WpXJy">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>1</track-number>
+    <length>203.119000</length>
+    <popularity>0.51</popularity>
+  </track>
+  <track href="spotify:track:7m8Wet5WD7PBwS5tfWWdGA">
+    <name>Uncover - Ted Nights Remix</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1300205</id>
+    <album href="spotify:album:6UOQi2XsYzKW8dth0WpXJy">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>5</track-number>
+    <length>230.362000</length>
+    <popularity>0.43</popularity>
+  </track>
+  <track href="spotify:track:5uB45hw5urOiWnvUVROOLI">
+    <name>Uncover - ReTrax Remix</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1300203</id>
+    <album href="spotify:album:6UOQi2XsYzKW8dth0WpXJy">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>3</track-number>
+    <length>270.024000</length>
+    <popularity>0.4</popularity>
+  </track>
+  <track href="spotify:track:2OERtdgtxyF7sbR3O9lLD4">
+    <name>Uncover - Callaway &amp; Rosta Remix Extended</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1300202</id>
+    <album href="spotify:album:6UOQi2XsYzKW8dth0WpXJy">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>2</track-number>
+    <length>360.799000</length>
+    <popularity>0.4</popularity>
+  </track>
+  <track href="spotify:track:3SHQMKcFd4ijBigUblCOR8">
+    <name>Uncover</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">USSM11302640</id>
+    <album href="spotify:album:5LbYhs5Pe34NOD5KKDGYS6">
+      <name>More Music 2013</name>
+      <released>2013</released>
+      <availability>
+        <territories>DK</territories>
+      </availability>
+    </album>
+    <track-number>5</track-number>
+    <length>211.486000</length>
+    <popularity>0.35</popularity>
+  </track>
+  <track href="spotify:track:5bRahQquEssHSMmHFLGYo4">
+    <name>Uncover - E-Flex Remix</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">SEWEE1300204</id>
+    <album href="spotify:album:6UOQi2XsYzKW8dth0WpXJy">
+      <name>Uncover</name>
+      <released>2013</released>
+      <availability>
+        <territories>SE</territories>
+      </availability>
+    </album>
+    <track-number>4</track-number>
+    <length>220.453000</length>
+    <popularity>0.36</popularity>
+  </track>
+  <track href="spotify:track:66K1x373X2kLqPvi1I7hrb">
+    <name>Uncover</name>
+    <artist href="spotify:artist:1Xylc3o4UrD53lo9CvFvVg">
+      <name>Zara Larsson</name>
+    </artist>
+    <id type="isrc">USSM11302640</id>
+    <album href="spotify:album:1SNLsECWpIUA5dEPTVSaiZ">
+      <name>Nytårsfesten 2014</name>
+      <released>2013</released>
+      <availability>
+        <territories>DK IS</territories>
+      </availability>
+    </album>
+    <track-number>80</track-number>
+    <length>213.002000</length>
+    <popularity>0</popularity>
+  </track>
+</tracks>

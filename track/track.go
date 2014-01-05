@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-const trackSearchUrl = "http://ws.spotify.com/search/1/track?q="
+const trackSearchBaseUrl = "http://ws.spotify.com/search/1/track?q="
 const preferredTerritory = "se"
 
 type Root struct {
@@ -28,6 +28,18 @@ type Track struct {
 	Territories string   `xml:"album>availability>territories"`
 }
 
+type Searcher struct {
+	preferred_territory   string
+	track_search_base_url string
+}
+
+func NewSearcher(territory string) *Searcher {
+	return &Searcher{
+		preferred_territory:   territory,
+		track_search_base_url: trackSearchBaseUrl,
+	}
+}
+
 // GetClosestMatch returns a track from spotify matching title and at least one of artist and album.
 // The data is fetched from Spotify's metadata API. (https://developer.spotify.com/technologies/web-api/)
 // The first track containing the preferredTerritory constant, or "worldwide" in the territories string
@@ -35,8 +47,16 @@ type Track struct {
 //
 // Please beware of rate limits;
 // "The rate limit is currently 10 request per second per ip. This may change."
-func GetClosestMatch(title, artist, album string) (Track, error) {
-	return Track{}, nil
+func (s *Searcher) FindClosestMatch(title, artist, album string) (Track, error) {
+	search_queries, _ := constructSearchQuery(title, artist, album)
+
+	url := s.track_search_base_url + "/" + search_queries[0]
+
+	xml_data, _ := fetchTracksXML(url)
+
+	track, _ := extractSingleTrackFromXML(xml_data)
+
+	return track, nil
 }
 
 func constructSearchQuery(title, artist, album string) ([]string, error) {
