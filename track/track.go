@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"regexp"
 	"strings"
 )
@@ -49,14 +50,18 @@ func constructSearchQuery(title, artist, album string) ([]string, error) {
 		// are returned.
 		if len(artist) > 0 && len(album) > 0 {
 			return []string{
-				constructSearchQueryFromTitleArtistAndAlbum(title, artist, album),
-				constructSearchQueryFromTitleAndArtist(title, artist),
-				constructSearchQueryFromTitleAndAlbum(title, album),
+				url.QueryEscape(constructSearchQueryFromTitleArtistAndAlbum(title, artist, album)),
+				url.QueryEscape(constructSearchQueryFromTitleAndArtist(title, artist)),
+				url.QueryEscape(constructSearchQueryFromTitleAndAlbum(title, album)),
 			}, nil
 		} else if len(artist) > 0 {
-			return []string{constructSearchQueryFromTitleAndArtist(title, artist)}, nil
+			return []string{
+				url.QueryEscape(constructSearchQueryFromTitleAndArtist(title, artist)),
+			}, nil
 		} else if len(album) > 0 {
-			return []string{constructSearchQueryFromTitleAndAlbum(title, album)}, nil
+			return []string{
+				url.QueryEscape(constructSearchQueryFromTitleAndAlbum(title, album)),
+			}, nil
 		}
 	}
 
