@@ -29,32 +29,33 @@ type Track struct {
 }
 
 type Searcher struct {
-	preferred_territory   string
+	territory             string
 	track_search_base_url string
 }
 
 func NewSearcher(territory string) *Searcher {
 	return &Searcher{
-		preferred_territory:   territory,
+		territory:             territory,
 		track_search_base_url: trackSearchBaseUrl,
 	}
 }
 
 // GetClosestMatch returns a track from spotify matching title and at least one of artist and album.
 // The data is fetched from Spotify's metadata API. (https://developer.spotify.com/technologies/web-api/)
-// The first track containing the preferredTerritory constant, or "worldwide" in the territories string
+// The first track containing the territory string of the Searcher instance, or "worldwide" in it's
+// territories string
 // is returned.
 //
 // Please beware of rate limits;
 // "The rate limit is currently 10 request per second per ip. This may change."
-func (s *Searcher) FindClosestMatch(title, artist, album string) (Track, error) {
+func (s Searcher) FindClosestMatch(title, artist, album string) (Track, error) {
 	search_queries, _ := constructSearchQuery(title, artist, album)
 
 	url := s.track_search_base_url + "/" + search_queries[0]
 
 	xml_data, _ := fetchTracksXML(url)
 
-	track, _ := extractSingleTrackFromXML(xml_data)
+	track, _ := s.extractSingleTrackFromXML(xml_data)
 
 	return track, nil
 }
@@ -114,16 +115,17 @@ func fetchTracksXML(url string) ([]byte, error) {
 	return body, nil
 }
 
-func extractSingleTrackFromXML(xml_data []byte) (Track, error) {
+func (s Searcher) extractSingleTrackFromXML(xml_data []byte) (Track, error) {
 	track_list, err := extractTracksFromXML(xml_data)
 
 	if err != nil {
 		return Track{}, err
 	}
 
-	// Return the first track where territories contains the preferredTerritory constant or "worldwide"
+	// Return the first track where territories contains the territory string or "worldwide"
 	for _, track := range track_list {
-		re := regexp.MustCompile("(?i)(" + preferredTerritory + "|worldwide)")
+		// TODO: Change to use Compile and add error handling since this value is no longer hard coded
+		re := regexp.MustCompile("(?i)(" + s.territory + "|worldwide)")
 
 		if matched := re.MatchString(track.Territories); matched {
 			return track, nil

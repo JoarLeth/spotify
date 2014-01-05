@@ -57,7 +57,7 @@ func TestFindClosestMatchDifferentTerritory(t *testing.T) {
 
 func new_mock_searcher(territory, search_url string) *Searcher {
 	return &Searcher{
-		preferred_territory:   territory,
+		territory:             territory,
 		track_search_base_url: search_url,
 	}
 }

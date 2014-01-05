@@ -7,7 +7,7 @@ import (
 
 func TestNewSearcher(t *testing.T) {
 	expected := &Searcher{
-		preferred_territory:   "EE",
+		territory:             "EE",
 		track_search_base_url: trackSearchBaseUrl,
 	}
 
