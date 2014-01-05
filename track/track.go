@@ -1,3 +1,4 @@
+// Package track fetches tracks using Spotify's metadata API
 package track
 
 import (
@@ -63,15 +64,15 @@ func constructSearchQuery(title, artist, album string) ([]string, error) {
 }
 
 func constructSearchQueryFromTitleAndArtist(title, artist string) string {
-	return fmt.Sprintf("track:%s artist:%s", title, artist)
+	return fmt.Sprintf("track:\"%s\" artist:\"%s\"", title, artist)
 }
 
 func constructSearchQueryFromTitleAndAlbum(title, album string) string {
-	return fmt.Sprintf("track:%s album:%s", title, album)
+	return fmt.Sprintf("track:\"%s\" album:\"%s\"", title, album)
 }
 
 func constructSearchQueryFromTitleArtistAndAlbum(title, artist, album string) string {
-	return fmt.Sprintf("track:%s artist:%s album:%s", title, artist, album)
+	return fmt.Sprintf("track:\"%s\" artist:\"%s\" album:\"%s\"", title, artist, album)
 }
 
 func fetchTracksXML(url string) ([]byte, error) {

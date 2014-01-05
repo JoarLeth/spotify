@@ -2,6 +2,7 @@ package track
 
 import (
 	"fmt"
+	"net/url"
 	"reflect"
 	"testing"
 )
@@ -12,9 +13,9 @@ func TestConstructSearchURLAllArgumentsIncluded(t *testing.T) {
 	album := "ty"
 
 	expected := []string{
-		fmt.Sprintf("track:%s artist:%s album:%s", title, artist, album),
-		fmt.Sprintf("track:%s artist:%s", title, artist),
-		fmt.Sprintf("track:%s album:%s", title, album),
+		url.QueryEscape(fmt.Sprintf("track:\"%s\" artist:\"%s\" album:\"%s\"", title, artist, album)),
+		url.QueryEscape(fmt.Sprintf("track:\"%s\" artist:\"%s\"", title, artist)),
+		url.QueryEscape(fmt.Sprintf("track:\"%s\" album:\"%s\"", title, album)),
 	}
 	actual, err := constructSearchQuery(title, artist, album)
 
@@ -110,7 +111,7 @@ func TestConstructSearchURLEmptyArtistOmitsArtistFromSearchString(t *testing.T) 
 	artist := ""
 	album := "ty"
 
-	expected := []string{fmt.Sprintf("track:%s album:%s", title, album)}
+	expected := []string{url.QueryEscape(fmt.Sprintf("track:\"%s\" album:\"%s\"", title, album))}
 	actual, err := constructSearchQuery(title, artist, album)
 
 	if err != nil {
@@ -127,7 +128,7 @@ func TestConstructSearchURLEmptyAlbumOmitsAlbumFromSearchString(t *testing.T) {
 	artist := "qwer"
 	album := ""
 
-	expected := []string{fmt.Sprintf("track:%s artist:%s", title, artist)}
+	expected := []string{url.QueryEscape(fmt.Sprintf("track:\"%s\" artist:\"%s\"", title, artist))}
 	actual, err := constructSearchQuery(title, artist, album)
 
 	if err != nil {
@@ -144,7 +145,7 @@ func TestConstructSearchURLStringsAreTrimmed(t *testing.T) {
 	artist := "		 "
 	album := "  ty"
 
-	expected := []string{fmt.Sprintf("track:%s album:%s", "asdf", "ty")}
+	expected := []string{url.QueryEscape(fmt.Sprintf("track:\"%s\" album:\"%s\"", "asdf", "ty"))}
 	actual, err := constructSearchQuery(title, artist, album)
 
 	if err != nil {
