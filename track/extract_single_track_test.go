@@ -6,15 +6,27 @@ import (
 )
 
 func TestExtractSingleTrackFromXMLCorrectTrack(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	expected := Track{
-		Name:    "True Affection",
-		Artists: []string{"The Blow"},
-		Album:   "Paper Television",
-		Href:    "spotify:track:0tO8FKgGQzzuf8KGkHGeIw",
+		Name:        "True Affection",
+		Artists:     []string{"The Blow"},
+		Album:       "Paper Television",
+		Href:        "spotify:track:1js3QhuQP3dwk4l2DrPXDC",
+		Territories: "AD AT BE BG CH CY CZ DE DK EE ES FI FR GB GR HU IE IS IT LI LT LU LV MC MT NL NO PL PT RO SE SI SK TR",
 	}
-	actual, _ := ExtractSingleTrackFromXML(xml_data)
+	actual, _ := extractSingleTrackFromXML(xml_data)
+
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("Resulting track not matching expected.\nExpected: %v\nActual: %v", expected, actual)
+	}
+}
+
+func TestExtractSingleTrackFromXMLNoTracksReturnsNilTrack(t *testing.T) {
+	xml_data := getTextFileData(t, "no_tracks.xml")
+
+	expected := Track{}
+	actual, _ := extractSingleTrackFromXML(xml_data)
 
 	if !reflect.DeepEqual(expected, actual) {
 		t.Errorf("Resulting track not matching expected.\nExpected: %v\nActual: %v", expected, actual)
@@ -24,7 +36,7 @@ func TestExtractSingleTrackFromXMLCorrectTrack(t *testing.T) {
 func TestExtractSingleTrackFromXMLReturnsError(t *testing.T) {
 	xml_data := "<tracks>"
 
-	_, err := ExtractSingleTrackFromXML([]byte(xml_data))
+	_, err := extractSingleTrackFromXML([]byte(xml_data))
 
 	if err == nil {
 		t.Error("Expexted error caused by malformed xml.")
@@ -34,7 +46,7 @@ func TestExtractSingleTrackFromXMLReturnsError(t *testing.T) {
 func TestExtractSingleTrackFromXMLCorrectErrorMessage(t *testing.T) {
 	xml_data := "<tracks>"
 
-	_, err := ExtractSingleTrackFromXML([]byte(xml_data))
+	_, err := extractSingleTrackFromXML([]byte(xml_data))
 
 	expected := "spotify/track: unable to unmarshal xml_data in extractTracksFromXML"
 	actual := err.Error()

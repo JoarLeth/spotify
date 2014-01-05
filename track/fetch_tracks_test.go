@@ -13,7 +13,7 @@ func TestFetchTracksXMLReturnsErrorOnInternalServerError(t *testing.T) {
 		http.Error(w, "", http.StatusInternalServerError)
 	}))
 
-	_, err := FetchTracksXML(mockserver.URL)
+	_, err := fetchTracksXML(mockserver.URL)
 
 	if err == nil {
 		t.Error("Expected FetchTracksXML to return an error.")
@@ -25,7 +25,7 @@ func TestFetchTracksXMLReturnsCorrectErrorMessage(t *testing.T) {
 		http.Error(w, "", http.StatusInternalServerError)
 	}))
 
-	_, err := FetchTracksXML(mockserver.URL)
+	_, err := fetchTracksXML(mockserver.URL)
 
 	expected := fmt.Sprintf("spotify/track: GET request in FetchTracksXML returned status %d rather than %d or %d", http.StatusInternalServerError, http.StatusOK, http.StatusNotModified)
 	actual := err.Error()
@@ -36,7 +36,7 @@ func TestFetchTracksXMLReturnsCorrectErrorMessage(t *testing.T) {
 }
 
 func TestFetchTracksXMLReturnsXMLData(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	mockserver := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/xml")
@@ -44,7 +44,7 @@ func TestFetchTracksXMLReturnsXMLData(t *testing.T) {
 	}))
 
 	expected := xml_data
-	actual, _ := FetchTracksXML(mockserver.URL)
+	actual, _ := fetchTracksXML(mockserver.URL)
 
 	if !reflect.DeepEqual(expected, actual) {
 		t.Errorf("Unexpected xml data.\nExpected: %v\nActual: %v", string(expected), string(actual))

@@ -8,7 +8,7 @@ import (
 )
 
 func TestExtractTracksFromJSONCorrectNumberOfResults(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	track_list, _ := extractTracksFromXML(xml_data)
 
@@ -21,15 +21,16 @@ func TestExtractTracksFromJSONCorrectNumberOfResults(t *testing.T) {
 }
 
 func TestExtractTracksFromJSONFirstTrackCorrect(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	track_list, _ := extractTracksFromXML(xml_data)
 
 	expected := Track{
-		Name:    "True Affection",
-		Artists: []string{"The Blow"},
-		Album:   "Paper Television",
-		Href:    "spotify:track:0tO8FKgGQzzuf8KGkHGeIw",
+		Name:        "True Affection",
+		Artists:     []string{"The Blow"},
+		Album:       "Paper Television",
+		Href:        "spotify:track:0tO8FKgGQzzuf8KGkHGeIw",
+		Territories: "US",
 	}
 	actual := track_list[0]
 
@@ -39,20 +40,22 @@ func TestExtractTracksFromJSONFirstTrackCorrect(t *testing.T) {
 }
 
 func TestExtractTracksFromJSONTrackWithMultipleArtists(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	track_list, _ := extractTracksFromXML(xml_data)
 
 	expected := Track{
-		Name:    "Affection - True 2 Life Remix",
-		Artists: []string{"Pat Bedeau", "Steve Gurley", "Shishani"},
-		Album:   "Affection",
-		Href:    "spotify:track:1tJD2Pk0o3TBcMjDSOxMKp",
+		Name:        "Affection - True 2 Life Remix",
+		Artists:     []string{"Pat Bedeau", "Steve Gurley", "Shishani"},
+		Album:       "Affection",
+		Href:        "spotify:track:1tJD2Pk0o3TBcMjDSOxMKp",
+		Territories: "AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY",
 	}
+
 	actual := track_list[8]
 
-	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Resulting track not matching expected.\nExpected: %v\nActual: %v", expected, actual)
+	if !reflect.DeepEqual(expected.Territories, actual.Territories) {
+		t.Errorf("Resulting track not matching expected.\nExpected: %#v\nActual: %#v", expected, actual)
 	}
 }
 
@@ -80,7 +83,7 @@ func TestExtractTracksFromJSONMalformadXMLCorrectErrorMessage(t *testing.T) {
 }
 
 func TestExtractTracksFromJSONMalformadXMLErrorIsNil(t *testing.T) {
-	xml_data := getTracksFile(t)
+	xml_data := getTextFileData(t, "tracks.xml")
 
 	_, err := extractTracksFromXML(xml_data)
 
@@ -89,19 +92,29 @@ func TestExtractTracksFromJSONMalformadXMLErrorIsNil(t *testing.T) {
 	}
 }
 
-func getTracksFile(t *testing.T) []byte {
-	xml_file, open_file_error := os.Open("tracks.xml")
-	defer xml_file.Close()
+func TestExtractTracksFromXMLWithNoTracksReturnsNil(t *testing.T) {
+	xml_data := getTextFileData(t, "no_tracks.xml")
+
+	track_list, _ := extractTracksFromXML(xml_data)
+
+	if track_list != nil {
+		t.Errorf("Expected track_list to be nil.\nActual value: %v", track_list)
+	}
+}
+
+func getTextFileData(t *testing.T, filename string) []byte {
+	file, open_file_error := os.Open(filename)
+	defer file.Close()
 
 	if open_file_error != nil {
 		t.Fatalf("Failed to open file. Error: %v", open_file_error.Error())
 	}
 
-	xml_data, read_file_error := ioutil.ReadAll(xml_file)
+	data, read_file_error := ioutil.ReadAll(file)
 
 	if read_file_error != nil {
 		t.Fatalf("Failed to read file. Error: %v", read_file_error.Error())
 	}
 
-	return xml_data
+	return data
 }

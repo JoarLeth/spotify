@@ -6,8 +6,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"regexp"
 	"strings"
 )
+
+const trackSearchUrl = "http://ws.spotify.com/search/1/track?q="
+const preferredTerritory = "se"
 
 type Root struct {
 	XMLName   xml.Name `xml:"tracks"`
@@ -15,13 +19,21 @@ type Root struct {
 }
 
 type Track struct {
-	Name    string   `xml:"name"`
-	Artists []string `xml:"artist>name"`
-	Album   string   `xml:"album>name"`
-	Href    string   `xml:"href,attr"`
+	Name        string   `xml:"name"`
+	Artists     []string `xml:"artist>name"`
+	Album       string   `xml:"album>name"`
+	Href        string   `xml:"href,attr"`
+	Territories string   `xml:"album>availability>territories"`
 }
 
-func Fetch(title, artist, album string) (Track, error) {
+// GetClosestMatch returns a track from spotify matching title and at least one of artist and album.
+// The data is fetched from Spotify's metadata API. (https://developer.spotify.com/technologies/web-api/)
+// The first track containing the preferredTerritory constant, or "worldwide" in the territories string
+// is returned.
+//
+// Please beware of rate limits;
+// "The rate limit is currently 10 request per second per ip. This may change."
+func GetClosestMatch(title, artist, album string) (Track, error) {
 	return Track{}, nil
 }
 
@@ -62,7 +74,7 @@ func constructSearchQueryFromTitleArtistAndAlbum(title, artist, album string) st
 	return fmt.Sprintf("track:%s artist:%s album:%s", title, artist, album)
 }
 
-func FetchTracksXML(url string) ([]byte, error) {
+func fetchTracksXML(url string) ([]byte, error) {
 	resp, _ := http.Get(url)
 	defer resp.Body.Close()
 
@@ -70,20 +82,29 @@ func FetchTracksXML(url string) ([]byte, error) {
 		return nil, fmt.Errorf("spotify/track: GET request in FetchTracksXML returned status %d rather than %d or %d", resp.StatusCode, http.StatusOK, http.StatusNotModified)
 	}
 
-	// Only returns error if bytes Buffer mecomes to large. How can this be tested?
+	// Only returns error if bytes Buffer becomes too large. How can this be tested?
 	body, _ := ioutil.ReadAll(resp.Body)
 
 	return body, nil
 }
 
-func ExtractSingleTrackFromXML(xml_data []byte) (Track, error) {
+func extractSingleTrackFromXML(xml_data []byte) (Track, error) {
 	track_list, err := extractTracksFromXML(xml_data)
 
 	if err != nil {
 		return Track{}, err
 	}
 
-	return track_list[0], nil
+	// Return the first track where territories contains the preferredTerritory constant or "worldwide"
+	for _, track := range track_list {
+		re := regexp.MustCompile("(?i)(" + preferredTerritory + "|worldwide)")
+
+		if matched := re.MatchString(track.Territories); matched {
+			return track, nil
+		}
+	}
+
+	return Track{}, nil
 }
 
 func extractTracksFromXML(xml_data []byte) ([]Track, error) {
