@@ -33,6 +33,12 @@ type Searcher struct {
 	track_search_base_url string
 }
 
+/*
+type ISearcher interface {
+	FindClosestMatch(string, string, string) (Track, error)
+}
+*/
+
 func NewSearcher(territory string) *Searcher {
 	return &Searcher{
 		territory:             territory,
