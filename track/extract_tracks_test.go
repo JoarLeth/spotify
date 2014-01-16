@@ -44,7 +44,7 @@ func TestExtractTracksFromJSONTrackWithMultipleArtists(t *testing.T) {
 
 	track_list, _ := extractTracksFromXML(xml_data)
 
-	expected := Track{
+	expectedFirst := Track{
 		Name:        "Affection - True 2 Life Remix",
 		Artists:     []string{"Pat Bedeau", "Steve Gurley", "Shishani"},
 		Album:       "Affection",
@@ -52,10 +52,24 @@ func TestExtractTracksFromJSONTrackWithMultipleArtists(t *testing.T) {
 		Territories: "AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY",
 	}
 
-	actual := track_list[8]
+	actualFirst := track_list[8]
 
-	if !reflect.DeepEqual(expected.Territories, actual.Territories) {
-		t.Errorf("Resulting track not matching expected.\nExpected: %#v\nActual: %#v", expected, actual)
+	if !reflect.DeepEqual(actualFirst, actualFirst) {
+		t.Errorf("Resulting track not matching expected.\nExpected: %#v\nActual: %#v", expectedFirst, actualFirst)
+	}
+
+	expectedLast := Track{
+		Name:        "Affection",
+		Artists:     []string{"The True Bypass"},
+		Album:       "No Hero Sound",
+		Href:        "spotify:track:5CG3XEWCSetrQSKgqhN6NR",
+		Territories: "AD AR AT AU BE BG BO BR CA CH CL CO CR CY CZ DE DK DO EC EE ES FI FR GB GR GT HK HN HU IE IS IT LI LT LU LV MC MT MX MY NI NL NO NZ PA PE PH PL PT PY RO SE SG SI SK SV TR TW US UY",
+	}
+
+	actualLast := track_list[29]
+
+	if !reflect.DeepEqual(expectedLast, actualLast) {
+		t.Errorf("Resulting track not matching expected.\nExpected: %#v\nActual: %#v", expectedLast, actualLast)
 	}
 }
 
@@ -74,7 +88,7 @@ func TestExtractTracksFromJSONMalformadXMLCorrectErrorMessage(t *testing.T) {
 
 	_, err := extractTracksFromXML([]byte(xml_data))
 
-	expected := "spotify/track: unable to unmarshal xml_data in extractTracksFromXML"
+	expected := errorPrefix + "Unable to unmarshal xml_data in extractTracksFromXML. Original error: EOF"
 	actual := err.Error()
 
 	if expected != actual {

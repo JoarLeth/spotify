@@ -47,11 +47,29 @@ func TestConstructSearchURLEmptyTitleCheckErrorMessage(t *testing.T) {
 
 	_, err := constructSearchQuery(title, artist, album)
 
-	expected := "spotify/track: A title and at least one of article and album must be supplied to constructSearchQuery."
+	expected := "github.com/joarleth/spotify/track: A title and at least one of article and album must be passed as arguments."
 	actual := err.Error()
 
 	if expected != actual {
 		t.Errorf("Unecpected error message.\nExpected: %v\nActual: %v", expected, actual)
+	}
+}
+
+func TestConstructSearchURLEmptyTitleReturnsTrackErrorArgumentError(t *testing.T) {
+	title := ""
+	artist := "qwer"
+	album := "ty"
+
+	_, err := constructSearchQuery(title, artist, album)
+
+	terr, isTrackError := err.(TrackError)
+
+	if isTrackError == false {
+		t.Errorf("Expected error to be of type TrackError")
+	}
+
+	if terr.ErrorType != ArgumentError {
+		t.Errorf("Expected ErrorType to be ArgumentError.")
 	}
 }
 
@@ -86,7 +104,7 @@ func TestConstructSearchURLOnlyTitleCheckErrorMessage(t *testing.T) {
 
 	_, err := constructSearchQuery(title, artist, album)
 
-	expected := "spotify/track: A title and at least one of article and album must be supplied to constructSearchQuery."
+	expected := "github.com/joarleth/spotify/track: A title and at least one of article and album must be passed as arguments."
 	actual := err.Error()
 
 	if expected != actual {

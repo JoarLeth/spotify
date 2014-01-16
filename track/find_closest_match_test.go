@@ -55,6 +55,32 @@ func TestFindClosestMatchDifferentTerritory(t *testing.T) {
 	}
 }
 
+func TestFindClosestMatchSearchQueryArgumentTrackError(t *testing.T) {
+	s := NewSearcher("SE")
+
+	_, err := s.FindClosestMatch("john", "", "")
+
+	if err == nil {
+		t.Fatal("Expected error.")
+	} else {
+		expectedMessage := errorPrefix + "A title and at least one of article and album must be passed as arguments."
+		actualMessage := err.Error()
+
+		if expectedMessage != actualMessage {
+			t.Errorf("Unecpected error message.\nExpected: %v\nActual: %v", expectedMessage, actualMessage)
+		}
+
+		terr, isTrackError := err.(TrackError)
+
+		if isTrackError == false {
+			t.Fatal("Expected error to be of type TrackError.")
+		}
+		if terr.ErrorType != ArgumentError {
+			t.Error("Expected ErrorType to be ArgumentError.")
+		}
+	}
+}
+
 func new_mock_searcher(territory, search_url string) *Searcher {
 	return &Searcher{
 		territory:             territory,

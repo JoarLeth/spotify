@@ -3,7 +3,6 @@ package track
 
 import (
 	"encoding/xml"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -33,11 +32,30 @@ type Searcher struct {
 	track_search_base_url string
 }
 
-/*
-type ISearcher interface {
-	FindClosestMatch(string, string, string) (Track, error)
+type TrackError struct {
+	Msg           string
+	ErrorType     ErrorType
+	OriginalError error
 }
-*/
+
+type ErrorType int
+
+const (
+	ArgumentError        ErrorType = 3
+	UnexpectedError      ErrorType = 4
+	ExternalServiceError ErrorType = 5
+	RateLimitError       ErrorType = 6
+)
+
+func (te TrackError) Error() string {
+	msg := "github.com/joarleth/spotify/track: " + te.Msg
+
+	if te.OriginalError != nil {
+		msg += " Original error: " + te.OriginalError.Error()
+	}
+
+	return msg
+}
 
 func NewSearcher(territory string) *Searcher {
 	return &Searcher{
@@ -55,13 +73,26 @@ func NewSearcher(territory string) *Searcher {
 // Please beware of rate limits;
 // "The rate limit is currently 10 request per second per ip. This may change."
 func (s Searcher) FindClosestMatch(title, artist, album string) (Track, error) {
-	search_queries, _ := constructSearchQuery(title, artist, album)
+	search_queries, err := constructSearchQuery(title, artist, album)
 
+	if err != nil {
+		return Track{}, err
+	}
+
+	// TODO: Loop through search queries if more than one and no track found
 	url := s.track_search_base_url + "/" + search_queries[0]
 
-	xml_data, _ := fetchTracksXML(url)
+	xml_data, fetch_error := fetchTracksXML(url)
 
-	track, _ := s.extractSingleTrackFromXML(xml_data)
+	if fetch_error != nil {
+		return Track{}, fetch_error
+	}
+
+	track, extract_err := s.extractSingleTrackFromXML(xml_data)
+
+	if extract_err != nil {
+		return Track{}, extract_err
+	}
 
 	return track, nil
 }
@@ -92,7 +123,7 @@ func constructSearchQuery(title, artist, album string) ([]string, error) {
 		}
 	}
 
-	return nil, errors.New("spotify/track: A title and at least one of article and album must be supplied to constructSearchQuery.")
+	return nil, TrackError{Msg: "A title and at least one of article and album must be passed as arguments.", ErrorType: ArgumentError}
 }
 
 func constructSearchQueryFromTitleAndArtist(title, artist string) string {
@@ -108,15 +139,31 @@ func constructSearchQueryFromTitleArtistAndAlbum(title, artist, album string) st
 }
 
 func fetchTracksXML(url string) ([]byte, error) {
-	resp, _ := http.Get(url)
+	// From http.Get:
+	// An error is returned if the Client's CheckRedirect function fails
+	// or if there was an HTTP protocol error. A non-2xx response doesn't
+	// cause an error.
+	resp, httpErr := http.Get(url)
 	defer resp.Body.Close()
 
+	if httpErr != nil {
+		return []byte{}, TrackError{Msg: "Get request failed in fetchTracksXML.", ErrorType: UnexpectedError, OriginalError: httpErr}
+	}
+
 	if !(resp.StatusCode == http.StatusOK || resp.StatusCode == http.StatusNotModified) {
-		return nil, fmt.Errorf("spotify/track: GET request in FetchTracksXML returned status %d rather than %d or %d", resp.StatusCode, http.StatusOK, http.StatusNotModified)
+		if resp.StatusCode == http.StatusForbidden {
+			return nil, TrackError{Msg: "Rate limit exceeded at Spotify Metadata API.", ErrorType: RateLimitError}
+		}
+
+		return nil, TrackError{Msg: fmt.Sprintf("GET request in FetchTracksXML returned status %d rather than %d or %d", resp.StatusCode, http.StatusOK, http.StatusNotModified), ErrorType: ExternalServiceError}
 	}
 
 	// Only returns error if bytes Buffer becomes too large. How can this be tested?
-	body, _ := ioutil.ReadAll(resp.Body)
+	body, ioutilErr := ioutil.ReadAll(resp.Body)
+
+	if ioutilErr != nil {
+		return []byte{}, TrackError{Msg: "ioutil.ReadAll failed in fetchTracksXML.", ErrorType: UnexpectedError, OriginalError: ioutilErr}
+	}
 
 	return body, nil
 }
@@ -131,6 +178,7 @@ func (s Searcher) extractSingleTrackFromXML(xml_data []byte) (Track, error) {
 	// Return the first track where territories contains the territory string or "worldwide"
 	for _, track := range track_list {
 		// TODO: Change to use Compile and add error handling since this value is no longer hard coded
+		// Or better still, use MustCompile at instantiation.
 		re := regexp.MustCompile("(?i)(" + s.territory + "|worldwide)")
 
 		if matched := re.MatchString(track.Territories); matched {
@@ -147,7 +195,7 @@ func extractTracksFromXML(xml_data []byte) ([]Track, error) {
 	err := xml.Unmarshal(xml_data, &r)
 
 	if err != nil {
-		return nil, errors.New("spotify/track: unable to unmarshal xml_data in extractTracksFromXML")
+		return nil, TrackError{Msg: "Unable to unmarshal xml_data in extractTracksFromXML.", OriginalError: err, ErrorType: ExternalServiceError}
 	}
 
 	return r.TrackList, nil

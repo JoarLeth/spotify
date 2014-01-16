@@ -56,7 +56,7 @@ func TestExtractSingleTrackFromXMLCorrectErrorMessage(t *testing.T) {
 
 	_, err := s.extractSingleTrackFromXML([]byte(xml_data))
 
-	expected := "spotify/track: unable to unmarshal xml_data in extractTracksFromXML"
+	expected := errorPrefix + "Unable to unmarshal xml_data in extractTracksFromXML. Original error: EOF"
 	actual := err.Error()
 
 	if expected != actual {
