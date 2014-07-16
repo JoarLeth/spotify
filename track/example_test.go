@@ -7,14 +7,14 @@ import (
 // Since this example runs code retrieving data from an external API
 // The output may well change in the future.
 func ExampleSearcher() {
-	s := NewSearcher("SE")
+	s := NewSearcher()
 
-	track, err := s.FindClosestMatch("human behaviour", "björk", "")
+	track, err := s.Find("lazarus", "david byrne", "")
 
 	if err != nil {
 		fmt.Printf("An error occurred. Error: %s", err.Error())
 	}
 
-	fmt.Println(track.Href)
-	// Output: spotify:track:4ry6oqlwdsooYtniYJFkt5
+	fmt.Println(track.Uri)
+	// Output: spotify:track:2NhEuDWWEeILAScaN2iPF4
 }

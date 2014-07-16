@@ -1,26 +1,51 @@
 package track
 
-/*
 import (
-	"io/ioutil"
-	"os"
 	"reflect"
 	"testing"
 )
 
-func TestExtractTracksFromJSONCorrectNumberOfResults(t *testing.T) {
-	xml_data := getTextFileData(t, "tracks.xml")
+func TestFind(t *testing.T) {
+	s := NewSearcher()
 
-	track_list, _ := extractTracksFromXML(xml_data)
+	expected := Track{Name: "Labyrinth",
+		Uri:     "spotify:track:7f7y9A3Spuus0SBsuDMdMa",
+		Artists: []string{"Bella Hardy"},
+		Album:   "Songs Lost & Stolen",
+	}
+	actual, _ := s.Find("Labyrinth", "Bella Hardy", "")
 
-	expected := 30
-	actual := len(track_list)
-
-	if expected != actual {
-		t.Errorf("Unexpected number of tracks. Expected: %v, got: %v", expected, actual)
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("Actual track not matching expected. \nExpected: %v\nActual:   %v\n", expected, actual)
 	}
 }
 
+func TestExtractTracksFromJSON(t *testing.T) {
+	data := getTextFileData(t, "test_data/tracks.json")
+
+	trackCollection, _ := extractTrackCollectionFromJSON(data)
+
+	expectedLength := 20
+	actualLength := len(trackCollection.Tracks.Items)
+
+	if expectedLength != actualLength {
+		t.Errorf("Unexpected number of tracks. Expected: %v, got: %v", expectedLength, actualLength)
+	}
+
+	expectedFirstTrack := item{Uri: "spotify:track:4ry6oqlwdsooYtniYJFkt5",
+		Name:    "Human Behaviour",
+		Artists: []artist{artist{Name: "Björk"}},
+		Album:   album{Name: "Debut (Ecopac)"},
+	}
+
+	actualFirstTrack := trackCollection.Tracks.Items[0]
+
+	if !reflect.DeepEqual(expectedFirstTrack, actualFirstTrack) {
+		t.Errorf("Actual first track not matching expected. \nExpected: %v\nActual:   %v\n", expectedFirstTrack, actualFirstTrack)
+	}
+}
+
+/*
 func TestExtractTracksFromJSONFirstTrackCorrect(t *testing.T) {
 	xml_data := getTextFileData(t, "tracks.xml")
 

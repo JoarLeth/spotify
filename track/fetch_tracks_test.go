@@ -1,5 +1,10 @@
 package track
 
+const (
+	errorPrefix = "github.com/joarleth/spotify/track: "
+)
+
+/*
 import (
 	"fmt"
 	"net/http"
@@ -89,3 +94,4 @@ func TestFetchTracksXML403ReturnsTrackErrorRateLimit(t *testing.T) {
 		t.Errorf("Expected ErrorType to be RateLimitError.")
 	}
 }
+*/

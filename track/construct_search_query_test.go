@@ -24,7 +24,7 @@ func TestConstructSearchURLAllArgumentsIncluded(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual: %s", expected, actual)
+		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual:   %s", expected, actual)
 	}
 }
 
@@ -137,7 +137,7 @@ func TestConstructSearchURLEmptyArtistOmitsArtistFromSearchString(t *testing.T) 
 	}
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual: %s", expected, actual)
+		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual:   %s", expected, actual)
 	}
 }
 
@@ -154,7 +154,7 @@ func TestConstructSearchURLEmptyAlbumOmitsAlbumFromSearchString(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual: %s", expected, actual)
+		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual:   %s", expected, actual)
 	}
 }
 
@@ -171,6 +171,6 @@ func TestConstructSearchURLStringsAreTrimmed(t *testing.T) {
 	}
 
 	if !reflect.DeepEqual(expected, actual) {
-		t.Errorf("Incorrect spotify search query.\nExpected: %s\nActual: %s", expected, actual)
+		t.Errorf("Incorrect spotify search query.\nExpected: %v\nActual:   %v", expected, actual)
 	}
 }
